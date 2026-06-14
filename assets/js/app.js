@@ -45,8 +45,9 @@ const state = {
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-function normalise(name = "") {
-  return name
+function normalise(name) {
+  if (name == null) return "";
+  return String(name)
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
